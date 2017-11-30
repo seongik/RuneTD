@@ -113,3 +113,19 @@ class WeakenRune (classes.Rune):
         self.target = best_target[0]
         
         return super(WeakenRune, self).shoot()
+
+class CatRune (classes.Rune):
+    cost = 40
+    shot_range = 15
+    fire_speed = 1200
+    
+    image_name = 'Cat rune'
+    shot_type = shots.CatBullet
+    
+    def apply_effects(self, rune):
+        rune.effects['damage'] += 10
+        rune.fire_speed *= 0.5
+    
+    def remove_effects(self, rune):
+        rune.effects['damage'] -= 10
+        rune.fire_speed /= 0.5
