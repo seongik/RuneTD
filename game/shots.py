@@ -96,9 +96,8 @@ class CatBullet (classes.Bullet):
     
     def apply_effects(self):
         pass
+        
+   
+        
     
-    def hit(self):
-        if random.random() > 0.2:
-            self.damage = 200
-        super(CatBullet, self).hit()
 
