@@ -123,9 +123,9 @@ class CatRune (classes.Rune):
     shot_type = shots.CatBullet
     
     def apply_effects(self, rune):
-        rune.effects['damage'] += 10
-        rune.fire_speed *= 0.5
+        rune.effects['damage'] += 1
+        rune.fire_speed *= 0.8
     
     def remove_effects(self, rune):
-        rune.effects['damage'] -= 10
-        rune.fire_speed /= 0.5
+        rune.effects['damage'] -= 1
+        rune.fire_speed /= 0.8
