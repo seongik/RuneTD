@@ -119,7 +119,7 @@ class CatRune (classes.Rune):
     shot_range = 15
     fire_speed = 1200
     
-    image_name = 'Cat rune'
+    image_name = 'Emerald rune'
     shot_type = shots.CatBullet
     
     def apply_effects(self, rune):
