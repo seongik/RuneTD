@@ -92,7 +92,7 @@ class CatBullet (classes.Bullet):
     
     def __init__(self, game, position, target, rune=None):
         super(CatBullet, self).__init__(game, position, target, rune)
-        self.image = game.resources['Cat bullet']
+        self.image = game.resources['Emerald bullet']
     
     def apply_effects(self):
         pass
