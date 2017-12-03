@@ -51,7 +51,7 @@ class RuneGame (engine.EngineV2):
             "Green rune":   pygame.image.load('media/green_rune.png'),
             "Red rune":     pygame.image.load('media/red_rune.png'),
             "Teal rune":    pygame.image.load('media/teal_rune.png'),
-            "Cat rune":     pygame.image.load('media/cat_rune.png'),
+            "Cat rune":     pygame.image.load('media/Emerald_rune.png'),
             
             # Bullets
             "Pink bullet":      pygame.image.load('media/pink_bullet.png'),
@@ -60,7 +60,7 @@ class RuneGame (engine.EngineV2):
             "Green bullet":     pygame.image.load('media/green_bullet.png'),
             "Red bullet":       pygame.image.load('media/red_bullet.png'),
             "Teal bullet":      pygame.image.load('media/teal_bullet.png'),
-            "Cat bullet":       pygame.image.load('media/cat_bullet.png'),
+            "Emerald bullet":       pygame.image.load('media/Emerald_bullet.png'),
         }
         
         self.rune_types = {
@@ -179,7 +179,7 @@ class RuneGame (engine.EngineV2):
         self.weaken_rune_info     = engine.Text_display((self.window_width - self.menu_width + 5, 470),
             "Cost: %d, Effect: +0.5 range" % runes.WeakenRune.cost, font_size=14, colour=(255,255,255))
 
-        self.cat_rune_button  = engine.Button((self.window_width - self.menu_width + 5, 495), self.resources['Cat rune'])
+        self.cat_rune_button  = engine.Button((self.window_width - self.menu_width + 5, 495), self.resources['Emerald rune'])
         self.cat_rune_button.button_up = self.select_rune_type
         self.cat_rune_button.button_up_kwargs = {"rune":"Cat"}
         self.add_button(self.cat_rune_button)
