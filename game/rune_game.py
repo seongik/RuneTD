@@ -52,6 +52,7 @@ class RuneGame (engine.EngineV2):
             "Red rune":     pygame.image.load('media/red_rune.png'),
             "Teal rune":    pygame.image.load('media/teal_rune.png'),
             "Cat rune":     pygame.image.load('media/Emerald_rune.png'),
+            "Doum rune":     pygame.image.load('media/doum_rune.png'),
             
             # Bullets
             "Pink bullet":      pygame.image.load('media/pink_bullet.png'),
@@ -71,6 +72,7 @@ class RuneGame (engine.EngineV2):
             "Critical": runes.CriticalRune,
             "Weaken":   runes.WeakenRune,
             "Cat":      runes.CatRune,
+            "Doum":     runes.DoumMal,
         }
         
         self.enemy_types = {
@@ -187,6 +189,14 @@ class RuneGame (engine.EngineV2):
         self.cat_rune_info     = engine.Text_display((self.window_width - self.menu_width + 5, 550),
             "Cost: %d, Effect: +10 Damage, -50%% rate of fire" % runes.CatRune.cost, font_size=14, colour=(255,255,255))
         
+        self.doum_rune_button = engine.Button((self.window_width - self.menu_width + 5, 575), self.resources['Doum rune'])
+        self.doum_rune_button.button_up = self.select_rune_type
+        self.doum_rune_button.button_up_kwargs = {"rune":"Doum"}
+        self.add_button(self.doum_rune_button)
+        self.doum_rune_text  = engine.Text_display((self.window_width - self.menu_width + 5, 610), "Doum mal", colour=(255,255,255))
+        self.game_info = engine.Text_display((self.window_width - self.menu_width + 5,630),
+            "if you do right click, you can sell that runes ", font_size=14, colour=(255,255,255))
+        
         # Rune info text
         self.rune_info_text = []
         
@@ -238,6 +248,10 @@ class RuneGame (engine.EngineV2):
         self.sprites.add(self.cat_rune_text)
         self.sprites.add(self.cat_rune_info)
         
+        self.sprites.add(self.doum_rune_button)
+        self.sprites.add(self.doum_rune_text)
+        self.sprites.add(self.game_info)
+        
         # Information on the last x/y of the mouse
         self.last_mouse_pos = (-1, -1)
         
@@ -267,6 +281,8 @@ class RuneGame (engine.EngineV2):
             x, y = self.weaken_rune_button.rect.left, self.weaken_rune_button.rect.top
         elif rune == "Cat":
             x, y = self.cat_rune_button.rect.left, self.cat_rune_button.rect.top
+        elif rune == "Doum":
+            x, y = self.doum_rune_button.rect.left, self.doum_rune_button.rect.top
          
         self.rune_selector.rect.left = x-3
         self.rune_selector.rect.top = y-3
