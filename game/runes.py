@@ -129,3 +129,10 @@ class CatRune (classes.Rune):
     def remove_effects(self, rune):
         rune.effects['damage'] -= 1
         rune.fire_speed /= 0.8
+        
+class DoumMal (classes.Rune):
+    cost = 0
+    shot_range = 0
+    fire_speed = 0
+
+    image_name = 'Doum rune'
